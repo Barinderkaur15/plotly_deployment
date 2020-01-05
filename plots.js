@@ -148,29 +148,27 @@ function Barchart(sample) {
         });
         
         var result = resultArray[0];
-        var top_ten_otu_id = result.otu_ids.slice(0, 10).map(numericIds => {
-          return 'OTU ' + numericIds;
-        }).reverse();
+        var otu_id = result.otu_ids
         
-        var top_ten_sample_value = result.sample_values.slice(0, 10).reverse();
-        var top_ten_label = result.otu_labels.slice(0, 10).reverse();
+        var sample_value = result.sample_values
+        var label = result.otu_labels
         
         var bubble_trace = {
           x: result.otu_ids,
-          y: top_ten_sample_value,
-          text: top_ten_label,
+          y: sample_value,
+          text: label,
           mode: 'markers',
           marker: {
-            size: top_ten_sample_value ,
-            color:top_ten_sample_value,
-            opacity:top_ten_sample_value
+            size: sample_value ,
+            color:sample_value,
+            opacity:sample_value
           }
         };
     
           var data = [bubble_trace];
     
           var bubble_layout = {
-            title: "Top Ten Samples",
+            title: "Belly Button biodiversity Samples",
             showlegend: false,
             height: 500,
             width: 1500
