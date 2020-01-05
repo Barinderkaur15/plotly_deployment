@@ -94,14 +94,39 @@ function Barchart(sample) {
         {
           domain: { x: [0, 1], y: [0, 1] },
           value: wash_frequency,
-          title: {text: "Belly Button Washing Frequency Scrubs per Week"} ,
+          title: {text: "Belly Button Washing Frequency <br> (Scrubs per Week)"} ,
           type: "indicator",
           mode: "gauge+number",
-          gauge:{axis:{visible:true,range:[0,9]}}
-         
-        }
-      ];
-      
+          gauge:{
+            axis:{visible:true,range:[null,9],tickwidth : 1}, 
+            bar : {color:"grey"},
+            bgcolor:"white",
+            borderwidth:2,
+            bordercolor:"gray",
+            /*hoverinfo:'label',
+            type: 'pie',
+            hole: 0.4,
+            rotation: 90,
+            text: ['0-1','1-2','2-3','3-4','4-5','5-6','6-7','7-8','8-9'],
+            direction: 'clockwise',
+            textinfo: 'text',
+            textposition: 'inside',
+            marker: { 
+              labels: ['0-1','1-2','2-3','3-4','4-5','5-6','6-7','7-8','8-9'],
+              hoverinfo: 'labels'},*/
+            steps:[
+              { range: [0, 1], color: 'rgba(255, 255, 224, 0.5)',text:'check' },
+              { range: [1, 2], color: 'rgba(255, 228, 181, 0.8)' },
+              { range: [2, 3], color: 'rgba(238,232,170, 0.8)' },
+              { range: [3, 4], color: 'rgba(240,230,140, 0.5)'},
+              { range: [4, 5], color: 'rgba(249, 168, 37, 0.5)'},
+              { range: [5, 6], color: 'rgba(171, 235, 198, 0.2)'},
+              { range: [6, 7], color: 'rgba(154, 205, 50, 0.5)'},
+              { range: [7, 8], color: 'rgba(46,139,87, 0.5)' },
+              { range: [8, 9], color: 'rgba(14,127,0, 0.5)'} ],
+            
+        } }
+      ]
       var gauge_layout = {
         width: 800, 
         height: 600, 
